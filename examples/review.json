@@ -1,0 +1,94 @@
+{
+  "rules_version": "1.0.0",
+  "rules_sha256": "e2ae0e1e0aa342330ddc1db847b8863d3f836ca14a1c0885b1c7edce1fdb9a54",
+  "summary": {
+    "READY_FOR_REVIEW": 1,
+    "INCOMPLETE": 3,
+    "MANUAL_REVIEW": 2
+  },
+  "results": [
+    {
+      "case_id": "DEMO01",
+      "status": "READY_FOR_REVIEW",
+      "findings": [],
+      "rules_version": "1.0.0",
+      "rules_sha256": "e2ae0e1e0aa342330ddc1db847b8863d3f836ca14a1c0885b1c7edce1fdb9a54"
+    },
+    {
+      "case_id": "DEMO02",
+      "status": "INCOMPLETE",
+      "findings": [
+        {
+          "rule_id": "Q03",
+          "field": "ongoing_treatment",
+          "outcome": "INCOMPLETE",
+          "message": "Bei laufender Behandlung sind ergänzende Angaben erforderlich."
+        },
+        {
+          "rule_id": "Q05",
+          "field": "ongoing_treatment",
+          "outcome": "MANUAL_REVIEW",
+          "message": "Behandlungsangaben zur menschlichen Prüfung weiterleiten."
+        }
+      ],
+      "rules_version": "1.0.0",
+      "rules_sha256": "e2ae0e1e0aa342330ddc1db847b8863d3f836ca14a1c0885b1c7edce1fdb9a54"
+    },
+    {
+      "case_id": "DEMO03",
+      "status": "MANUAL_REVIEW",
+      "findings": [
+        {
+          "rule_id": "Q06",
+          "field": "regular_medication",
+          "outcome": "MANUAL_REVIEW",
+          "message": "Medikamentenangaben zur menschlichen Prüfung weiterleiten."
+        }
+      ],
+      "rules_version": "1.0.0",
+      "rules_sha256": "e2ae0e1e0aa342330ddc1db847b8863d3f836ca14a1c0885b1c7edce1fdb9a54"
+    },
+    {
+      "case_id": "DEMO04",
+      "status": "INCOMPLETE",
+      "findings": [
+        {
+          "rule_id": "Q01",
+          "field": "ongoing_treatment",
+          "outcome": "INCOMPLETE",
+          "message": "Angabe zur laufenden Behandlung fehlt oder ist kein Boolean."
+        }
+      ],
+      "rules_version": "1.0.0",
+      "rules_sha256": "e2ae0e1e0aa342330ddc1db847b8863d3f836ca14a1c0885b1c7edce1fdb9a54"
+    },
+    {
+      "case_id": "DEMO05",
+      "status": "INCOMPLETE",
+      "findings": [
+        {
+          "rule_id": "Q01",
+          "field": "ongoing_treatment",
+          "outcome": "INCOMPLETE",
+          "message": "Angabe zur laufenden Behandlung fehlt oder ist kein Boolean."
+        }
+      ],
+      "rules_version": "1.0.0",
+      "rules_sha256": "e2ae0e1e0aa342330ddc1db847b8863d3f836ca14a1c0885b1c7edce1fdb9a54"
+    },
+    {
+      "case_id": "DEMO06",
+      "status": "MANUAL_REVIEW",
+      "findings": [
+        {
+          "rule_id": "Q05",
+          "field": "ongoing_treatment",
+          "outcome": "MANUAL_REVIEW",
+          "message": "Behandlungsangaben zur menschlichen Prüfung weiterleiten."
+        }
+      ],
+      "rules_version": "1.0.0",
+      "rules_sha256": "e2ae0e1e0aa342330ddc1db847b8863d3f836ca14a1c0885b1c7edce1fdb9a54"
+    }
+  ]
+}

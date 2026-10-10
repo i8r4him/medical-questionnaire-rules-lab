@@ -1,0 +1,8 @@
+[
+  {"case_id": "DEMO01", "answers": {"ongoing_treatment": false, "regular_medication": false}},
+  {"case_id": "DEMO02", "answers": {"ongoing_treatment": true, "regular_medication": false}},
+  {"case_id": "DEMO03", "answers": {"ongoing_treatment": false, "regular_medication": true, "medication_details": "Synthetische Medikamentenangabe für den Test."}},
+  {"case_id": "DEMO04", "answers": {"regular_medication": false}},
+  {"case_id": "DEMO05", "answers": {"ongoing_treatment": "false", "regular_medication": false}},
+  {"case_id": "DEMO06", "answers": {"ongoing_treatment": true, "treatment_details": "Synthetische Behandlungsangabe für den Test.", "regular_medication": false}}
+]

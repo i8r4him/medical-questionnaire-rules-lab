@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {"id": "Q01", "operation": "required_boolean", "field": "ongoing_treatment", "message": "Angabe zur laufenden Behandlung fehlt oder ist kein Boolean."},
+    {"id": "Q02", "operation": "required_boolean", "field": "regular_medication", "message": "Angabe zur regelmäßigen Medikamenteneinnahme fehlt oder ist kein Boolean."},
+    {"id": "Q03", "operation": "details_if_true", "field": "ongoing_treatment", "details_field": "treatment_details", "message": "Bei laufender Behandlung sind ergänzende Angaben erforderlich."},
+    {"id": "Q04", "operation": "details_if_true", "field": "regular_medication", "details_field": "medication_details", "message": "Bei regelmäßiger Medikamenteneinnahme sind ergänzende Angaben erforderlich."},
+    {"id": "Q05", "operation": "review_if_true", "field": "ongoing_treatment", "message": "Behandlungsangaben zur menschlichen Prüfung weiterleiten."},
+    {"id": "Q06", "operation": "review_if_true", "field": "regular_medication", "message": "Medikamentenangaben zur menschlichen Prüfung weiterleiten."}
+  ]
+}

@@ -1,0 +1,27 @@
+name: Tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m xmlrunner discover -s tests -o reports/unit -v
+      - name: Gherkin-Abnahme
+        if: ${{ !cancelled() }}
+        run: python -m behave --junit --junit-directory reports/acceptance
+      - run: python -m health_rules data/cases.json --output reports/demo.json
+      - name: Prüfergebnisse
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: results-python-${{ matrix.python }}
+          path: reports/
