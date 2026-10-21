@@ -26,7 +26,7 @@ Die Version beschreibt den fachlichen Änderungsstand. Die Prüfsumme bezeichnet
 
 ## Was sind die Grenzen?
 
-Es gibt zwei Demo-Fragen, sechs Grundregeln und synthetische Daten. Freitext wird nur auf Vorhandensein geprüft. Das Projekt beurteilt keine medizinischen Inhalte. Es gibt keine Datenbank, Weboberfläche, produktive Systemanbindung oder FHIR-Konformitätsprüfung.
+Es gibt zwei Demo-Fragen, sechs Grundregeln und synthetische Daten. Freitext wird nur auf Vorhandensein geprüft. Das Projekt beurteilt keine medizinischen Inhalte. Es gibt keine Datenbank, Weboberfläche, produktive Systemanbindung oder FHIR-Konformitätsprüfung. Die Datei `fhir/questionnaire.json` bildet die Fragen als FHIR-R4-Questionnaire ab; der Interpreter liest sie nicht. Der weitere Weg steht in der [Roadmap](ROADMAP.md).
 
 ## Ein Beispiel verändern
 
