@@ -54,4 +54,4 @@ Die Tests sichern korrekte Bearbeitungswege, fehlerhafte Datentypen, fehlende De
 
 Der [Jenkinsfile](Jenkinsfile) installiert Testwerkzeuge in einer virtuellen Umgebung, führt Tests und Demo aus und veröffentlicht JUnit-Ergebnisse sowie Artefakte. GitHub Actions ist für Python 3.10 und 3.13 vorbereitet. [Prüfbericht](docs/test-report.md).
 
-Weitere Unterlagen: [Anforderungen](docs/requirements.md) und [Funktionsweise](docs/guide.md).
+Weitere Unterlagen: [Anforderungen](docs/requirements.md), [Funktionsweise](docs/guide.md) und [Roadmap](docs/ROADMAP.md). Der erste FHIR-Schritt ist die Questionnaire-Datei `fhir/questionnaire.json`. Die Regelprüfung liest sie nicht.

@@ -1,0 +1,56 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "synthetic-health-questionnaire",
+  "url": "https://example.org/fhir/Questionnaire/synthetic-health-questionnaire",
+  "version": "1.0.0",
+  "name": "SyntheticHealthQuestionnaire",
+  "title": "Synthetischer Gesundheitsfragebogen",
+  "status": "draft",
+  "subjectType": ["Patient"],
+  "date": "2026-10-21",
+  "description": "FHIR-R4-Abbildung der zwei Demo-Fragen aus rules/questionnaire.json. linkId ist der Feldname der Regelbasis. Die Weiterleitung zur menschlichen Prüfung (Q05, Q06) ist keine Frage und steht deshalb nicht als Item in diesem Fragebogen. Nur ein synthetisches Lernbeispiel, keine Konformitätserklärung.",
+  "item": [
+    {
+      "linkId": "ongoing_treatment",
+      "text": "Besteht eine laufende Behandlung?",
+      "type": "boolean",
+      "required": true,
+      "item": [
+        {
+          "linkId": "treatment_details",
+          "text": "Ergänzende Angaben zur laufenden Behandlung",
+          "type": "string",
+          "required": true,
+          "enableWhen": [
+            {
+              "question": "ongoing_treatment",
+              "operator": "=",
+              "answerBoolean": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "regular_medication",
+      "text": "Werden regelmäßig Medikamente eingenommen?",
+      "type": "boolean",
+      "required": true,
+      "item": [
+        {
+          "linkId": "medication_details",
+          "text": "Ergänzende Angaben zur regelmäßigen Medikamenteneinnahme",
+          "type": "string",
+          "required": true,
+          "enableWhen": [
+            {
+              "question": "regular_medication",
+              "operator": "=",
+              "answerBoolean": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
