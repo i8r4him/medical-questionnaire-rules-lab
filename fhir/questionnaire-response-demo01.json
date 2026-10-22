@@ -1,0 +1,24 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "demo01",
+  "questionnaire": "https://example.org/fhir/Questionnaire/synthetic-health-questionnaire",
+  "status": "completed",
+  "item": [
+    {
+      "linkId": "ongoing_treatment",
+      "answer": [
+        {
+          "valueBoolean": false
+        }
+      ]
+    },
+    {
+      "linkId": "regular_medication",
+      "answer": [
+        {
+          "valueBoolean": false
+        }
+      ]
+    }
+  ]
+}

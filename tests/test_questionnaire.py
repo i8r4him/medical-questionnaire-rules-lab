@@ -7,6 +7,7 @@ from health_rules.engine import load_rules
 
 ROOT = Path(__file__).resolve().parent.parent
 QUESTIONNAIRE_PATH = ROOT / 'fhir' / 'questionnaire.json'
+RESPONSE_DEMO01_PATH = ROOT / 'fhir' / 'questionnaire-response-demo01.json'
 
 
 def load_questionnaire():
@@ -69,3 +70,28 @@ class QuestionnaireResourceTests(unittest.TestCase):
         review_ids = {rule['id'] for rule in self.book['rules'] if rule['operation'] == 'review_if_true'}
         self.assertTrue(review_ids)
         self.assertTrue(review_ids.isdisjoint(link_ids(self.questionnaire['item'])))
+
+
+class QuestionnaireResponseDemo01Tests(unittest.TestCase):
+    def test_demo01_boolean_answers_match_the_case(self):
+        cases = json.loads((ROOT / 'data' / 'cases.json').read_text(encoding='utf-8'))
+        demo01 = next(case for case in cases if case['case_id'] == 'DEMO01')
+        questionnaire = load_questionnaire()
+        response = json.loads(RESPONSE_DEMO01_PATH.read_text(encoding='utf-8'))
+        known_link_ids = set(link_ids(questionnaire['item']))
+
+        self.assertEqual(response['resourceType'], 'QuestionnaireResponse')
+        self.assertEqual(response['status'], 'completed')
+        self.assertEqual(response['questionnaire'], questionnaire['url'])
+
+        answered = {}
+        for item in response['item']:
+            self.assertIn(item['linkId'], known_link_ids)
+            answer = item['answer']
+            self.assertEqual(len(answer), 1)
+            value_fields = [key for key in answer[0] if key.startswith('value')]
+            self.assertEqual(value_fields, ['valueBoolean'])
+            value = answer[0]['valueBoolean']
+            self.assertIs(type(value), bool)
+            answered[item['linkId']] = value
+        self.assertEqual(answered, demo01['answers'])
