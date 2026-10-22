@@ -26,9 +26,9 @@ Es werden nur synthetische Daten verwendet. Es kommt keine FHIR-Server-Implement
 
 `fhir/questionnaire.json` beschreibt die beiden Fragen als FHIR-R4-Questionnaire, Version `1.0.0` wie die Regelbasis. Ein Test lädt die Datei und vergleicht die linkIds mit den Feldern aus `load_rules()`. Die Kommandozeile und die Statuslogik sind unverändert. Die Datei ist keine Konformitätsprüfung und kein Ersatz für die Regeln.
 
-### 2. Eine QuestionnaireResponse für DEMO01
+### 2. Eine QuestionnaireResponse für DEMO01 — erledigt
 
-Einen vollständig mit `false` beantworteten Fall als QuestionnaireResponse abbilden. Boolean-Antworten stehen in `answer.valueBoolean`, der Bezug zum Fragebogen in `questionnaire`. Test: die beiden Werte stimmen mit `data/cases.json` überein.
+`fhir/questionnaire-response-demo01.json` bildet den synthetischen Fall DEMO01 ab. Beide Antworten sind Boolean `false` und stehen in `answer.valueBoolean`. `questionnaire` ist die Canonical-URL aus `fhir/questionnaire.json`. Die linkIds sind dieselben wie im Questionnaire. Die Detailfragen fehlen in der Antwort, weil sie bei `false` nicht aktiv sind. `status` der Antwort ist `completed`, weil beide Pflichtfragen beantwortet sind. Ein Test liest DEMO01 aus `data/cases.json` und vergleicht die beiden Werte. Die Datei ist keine Konformitätsprüfung. Die übrigen fünf Fälle sind noch nicht abgebildet.
 
 ### 3. Alle sechs Demo-Fälle abbilden
 
@@ -64,8 +64,8 @@ Die neuen Tests laufen über `python3 -m unittest discover`, also in GitHub Acti
 
 ## Grenzen
 
-- Die Questionnaire-Datei wird vom Interpreter nicht gelesen.
-- `status: draft` heißt: Lernbeispiel, kein freigegebenes Formular.
+- Die Dateien unter `fhir/` werden vom Interpreter nicht gelesen.
+- `Questionnaire.status: draft` heißt: Lernbeispiel, kein freigegebenes Formular.
 - Freitext wird auch später nur auf Vorhandensein geprüft.
 - Es gibt kein Scoring und keine medizinische Entscheidung.
 - Der Prüfbericht unter `docs/test-report.md` ist ein Snapshot vom 10.10.2026 und wird nicht bei jedem Schritt umgeschrieben.
